@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3ttfnte1e2b8"]
 
-[ext_resource type="Script" path="res://UI/in_game.gd" id="1_qfnjf"]
+[ext_resource type="Script" uid="uid://cacp6ugcvryyv" path="res://UI/in_game.gd" id="1_qfnjf"]
 
 [node name="Word" type="Control"]
 layout_mode = 3
