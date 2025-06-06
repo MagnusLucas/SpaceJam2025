@@ -23,7 +23,6 @@ func try_to_catch_letter() -> String:
 			letters_near_me.erase(letter)
 	if letters_near_me.is_empty():
 		return ""
-	print_debug(letters_near_me)
 	var enemy = get_closest_enemy(letters_near_me)
 	var letter = enemy.letter
 	enemy.queue_free()
