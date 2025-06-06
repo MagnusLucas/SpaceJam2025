@@ -1,7 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://3jn04s0a6b4a"]
+[gd_scene load_steps=3 format=3 uid="uid://3jn04s0a6b4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
+[ext_resource type="PackedScene" uid="uid://o5sjtvexucuj" path="res://UI/in_game.tscn" id="2_1r4le"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TileMapLayer" parent="." instance=ExtResource("1_bk3v5")]
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Map" parent="Control" instance=ExtResource("1_bk3v5")]
+
+[node name="Word" parent="." instance=ExtResource("2_1r4le")]
+layout_mode = 1
