@@ -25,4 +25,10 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("catch_letter"):
 		var letter = try_to_catch_letter()
 		if letter:
-			get_node("root/Game/Word").get_letter(letter)
+			get_node("/root/Game/Word").get_letter(letter)
+	
+	if Input.is_action_just_pressed("clear_word"):
+		var map = get_parent()
+		if map.is_close_to_base(position):
+			get_node("/root/Game/Word").clear()
+	
