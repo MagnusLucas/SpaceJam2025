@@ -16,6 +16,7 @@ func _ready() -> void:
 	destination = $Marker2D.position
 
 
+@warning_ignore("shadowed_variable")
 static func new_enemy(letter : String, loc1 : Vector2i, loc2 : Vector2i) -> Enemy:
 	var enemy = enemy_scene.instantiate()
 	enemy.letter = letter
@@ -23,7 +24,14 @@ static func new_enemy(letter : String, loc1 : Vector2i, loc2 : Vector2i) -> Enem
 	return enemy
 
 
-func _physics_process(delta) -> void:
+func _physics_process(_delta) -> void:
 	dir_to_des = Vector2((destination - position).normalized())
 	velocity = dir_to_des * speed
 	move_and_slide()
+	if Input.is_key_label_pressed(KEY_D):
+		death()
+	
+func death():
+	$"../../../Word".add_letter(letter)
+	#miejsce na dodanie liter
+	queue_free()
