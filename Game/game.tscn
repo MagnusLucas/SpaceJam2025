@@ -1,7 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://3jn04s0a6b4a"]
+[gd_scene load_steps=3 format=3 uid="uid://3jn04s0a6b4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
 
+[sub_resource type="GDScript" id="GDScript_bk3v5"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	
+	add_child(Enemy.new_enemy('e', Vector2i(250,250),Vector2i(500,500)))
+"
+
 [node name="Game" type="Node2D"]
+script = SubResource("GDScript_bk3v5")
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_bk3v5")]
