@@ -11,3 +11,4 @@ func _ready() -> void:
 	position -= Vector2(-8, -7) #centering the center hex
 	var player = Player.new_player()
 	add_child(player)
+	add_child(Enemy.new_enemy('e',Vector2i(250,250),Vector2i(500,500)))
