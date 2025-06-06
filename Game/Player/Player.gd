@@ -7,8 +7,27 @@ const MAX_SPEED : int = 100
 static func new_player():
 	return player_scene.instantiate()
 
+func get_closest_enemy(enemies : Array[Node2D]) -> Enemy:
+	var closest_distance = INF
+	var closest_enemy = enemies[0]
+	for enemy in enemies:
+		if enemy.position.distance_squared_to(position) < closest_distance:
+			closest_enemy = enemy
+			closest_distance = enemy.position.distance_squared_to(position)
+	return closest_enemy
+
 func try_to_catch_letter() -> String:
-	return ""
+	var letters_near_me : Array[Node2D] = $Area2D.get_overlapping_bodies()
+	for letter in letters_near_me:
+		if letter is not Enemy:
+			letters_near_me.erase(letter)
+	if letters_near_me.is_empty():
+		return ""
+	print_debug(letters_near_me)
+	var enemy = get_closest_enemy(letters_near_me)
+	var letter = enemy.letter
+	enemy.queue_free()
+	return letter
 
 func _process(delta: float) -> void:
 	var move_direction : Vector2 = Vector2(0,0)
@@ -20,12 +39,13 @@ func _process(delta: float) -> void:
 		move_direction += Vector2.LEFT
 	if Input.is_action_pressed("move_right"):
 		move_direction += Vector2.RIGHT
+	rotation = move_direction.angle() - Vector2.UP.angle()
 	position += move_direction * MAX_SPEED * delta
 	
 	if Input.is_action_just_pressed("catch_letter"):
 		var letter = try_to_catch_letter()
 		if letter:
-			get_node("/root/Game/Word").get_letter(letter)
+			get_node("/root/Game/Word").add_letter(letter)
 	
 	if Input.is_action_just_pressed("clear_word"):
 		var map = get_parent()

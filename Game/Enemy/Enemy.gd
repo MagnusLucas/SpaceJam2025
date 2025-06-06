@@ -28,10 +28,3 @@ func _physics_process(_delta) -> void:
 	dir_to_des = Vector2((destination - position).normalized())
 	velocity = dir_to_des * speed
 	move_and_slide()
-	if Input.is_key_label_pressed(KEY_D):
-		death()
-	
-func death():
-	$"../../../Word".add_letter(letter)
-	#miejsce na dodanie liter
-	queue_free()
