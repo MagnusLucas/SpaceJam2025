@@ -8,12 +8,13 @@ func _ready() -> void:
 	$"../Control/Map/Player/Node2D/TextureProgressBar".show()
 	get_tree().paused = false
 
-func load_data() -> void:
+func load_data():
 	var file = FileAccess.open("res://Game/GameData.json", FileAccess.READ)
 	var content = file.get_as_text()
 	var json = JSON.new()
 	json.parse(content)
 	data = json.data
+	return data
 
 func add_letter(letter : String) -> void:
 	$Label.text += letter
