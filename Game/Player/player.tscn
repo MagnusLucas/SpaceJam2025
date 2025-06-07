@@ -19,17 +19,17 @@ region = Rect2(79, 207, 79, 69)
 atlas = ExtResource("2_s3asc")
 region = Rect2(158, 207, 79, 69)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3asc"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(0, 69, 79, 69)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2hw7"]
 atlas = ExtResource("2_s3asc")
-region = Rect2(0, 138, 79, 69)
+region = Rect2(79, 69, 79, 69)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ch4ko"]
 atlas = ExtResource("2_s3asc")
-region = Rect2(79, 138, 79, 69)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vh1aq"]
-atlas = ExtResource("2_s3asc")
-region = Rect2(158, 138, 79, 69)
+region = Rect2(158, 69, 79, 69)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ddeg"]
 atlas = ExtResource("2_s3asc")
@@ -73,13 +73,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_s3asc")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p2hw7")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ch4ko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vh1aq")
 }],
 "loop": true,
 "name": &"left_run",
@@ -143,8 +143,8 @@ texture = SubResource("AnimatedTexture_m57qa")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_akrrf")
-animation = &"down_run"
-frame_progress = 0.901953
+animation = &"left_run"
+frame_progress = 0.470091
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -50)
