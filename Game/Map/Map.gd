@@ -33,6 +33,13 @@ func _ready() -> void:
 	wave1()
 	print(health)
 	
+func update_terrain(prev_pos : Vector2i, curr_pos : Vector2i, terrain : Terrain) -> void:
+	var atlas_coords = get_cell_atlas_coords(prev_pos)
+	set_cell(prev_pos)
+	set_cell(curr_pos, 0, atlas_coords)
+	terrains.erase(prev_pos)
+	terrains[curr_pos] = terrain
+	terrain.position = map_to_local(curr_pos)
 
 func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	var terrain_position = local_to_map(player.position)
@@ -51,14 +58,11 @@ func update_health():
 	@warning_ignore("integer_division")
 	$"../../TextureProgressBar".value = health / max_health * 100
 
-func _process(_delta):
-	if Input.is_key_label_pressed(KEY_L):
-		lose()
+
 func lose():
 	get_tree().paused = true
 	$Player/Node2D/TextureProgressBar.hide()
 	$"../../LoseOverlay".show()
-	pass
 
 
 #--------------------------------------------------------------------------------------------------------

@@ -5,6 +5,7 @@ const player_scene = preload("res://Game/Player/player.tscn")
 const MAX_SPEED : int = 100
 
 var terrain : Terrain
+var previous_position : Vector2i
 
 static func new_player():
 	return player_scene.instantiate()
@@ -34,6 +35,7 @@ func try_to_catch_letter() -> String:
 	return ""
 
 func _process(delta: float) -> void:
+	var map : Map = get_parent()
 	var move_direction : Vector2 = Vector2(0,0)
 	if Input.is_action_pressed("move_up"):
 		move_direction += Vector2.UP
@@ -45,7 +47,11 @@ func _process(delta: float) -> void:
 		move_direction += Vector2.RIGHT
 	if move_direction:
 		rotation = move_direction.angle() - Vector2.UP.angle()
+	previous_position = map.local_to_map(position)
 	position += move_direction * MAX_SPEED * delta
+	
+	if previous_position != map.local_to_map(position) and terrain:
+		map.update_terrain(previous_position, map.local_to_map(position), terrain)
 	
 	if Input.is_action_just_pressed("catch_letter"):
 		var letter = try_to_catch_letter()
@@ -53,14 +59,15 @@ func _process(delta: float) -> void:
 			get_node("/root/Game/Word").add_letter(letter)
 	
 	if Input.is_action_just_pressed("clear_word"):
-		var map = get_parent()
 		if map.is_close_to_base(position):
 			get_node("/root/Game/Word").clear()
 	
 	if Input.is_action_just_pressed("pick_terrain"):
-		var map : Map = get_parent()
-		if map.terrains.has(map.local_to_map(position)):
+		if !terrain and map.terrains.has(map.local_to_map(position)):
 			terrain = map.terrains[map.local_to_map(position)]
+		elif terrain:
+			map.update_terrain(previous_position, map.local_to_map(position), terrain)
+			terrain = null
 	
 	$Node2D/TextureProgressBar.value = $Node2D/Timer.time_left/$Node2D/Timer.wait_time*100
 	$Node2D/TextureProgressBar.global_position = global_position + Vector2(40, -20)
