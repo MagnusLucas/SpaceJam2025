@@ -3,42 +3,42 @@
 [ext_resource type="Texture2D" uid="uid://bmphnqqrowi0j" path="res://Game/Map/tileset.png" id="1_ab5vn"]
 [ext_resource type="Script" uid="uid://cs01piojlbl2" path="res://Game/Map/Map.gd" id="1_mkd1x"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60ibj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ab5vn"]
 texture = ExtResource("1_ab5vn")
 texture_region_size = Vector2i(80, 70)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
 0:2/0 = 0
 1:2/0 = 0
 2:2/0 = 0
 3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_60ibj"]
 tile_shape = 3
 tile_offset_axis = 1
 tile_size = Vector2i(80, 70)
-sources/0 = SubResource("TileSetAtlasSource_60ibj")
+sources/0 = SubResource("TileSetAtlasSource_ab5vn")
 
 [node name="Map" type="TileMapLayer"]
 tile_set = SubResource("TileSet_60ibj")
