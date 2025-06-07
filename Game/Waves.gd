@@ -9,10 +9,11 @@ func string_to_array(str):
 
 #funkcja na pierwszy drop wavea, po to zeby nie bylo 5 razy b na start XD	
 func first_drop(rand_let, loc1 : Vector2i, loc2 : Vector2i, time : int = 1 ):
-	for i in range(len(rand_let)):
-		var let = rand_let.pick_random()
+	var rand_let_par = rand_let.duplicate()
+	for i in range(len(rand_let_par)):
+		var let = rand_let_par.pick_random()
 		add_child(Enemy.new_enemy(let,loc1,loc2))
-		rand_let.erase(let)
+		rand_let_par.erase(let)
 		await get_tree().create_timer(time).timeout
 
 func duplicates_check(string):
@@ -23,13 +24,16 @@ func duplicates_check(string):
 			p = p+char
 	return p
 
+func wave_dead():
+	while get_tree().get_node_count_in_group("Enemy") != 0:
+		await get_tree().create_timer(0.2).timeout
+
 #----------------
 #ACTUALLY WAVE
 #----------------
 #wave0 to bedzie turorial
 func wave0():
 	add_child(Enemy.new_enemy('b',Vector2i(250,250),Vector2i(250,250),10,false))
-	print(get_tree().get_node_count_in_group("Enemy") != 0)
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	add_child(Enemy.new_enemy('a',Vector2i(50,-20),Vector2i(1100,-10)))
@@ -39,15 +43,17 @@ func wave0():
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	add_child(Enemy.new_enemy('e',Vector2i(50,-20),Vector2i(1100,-10)))
+	while get_tree().get_node_count_in_group("Enemy") != 0:
+		await get_tree().create_timer(0.2).timeout
 	
-	pass
 func wave1():
-	
 	var rand_let = ['b','a','s','e']
 	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
-	for i in range(4):
-		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10)))
+	for i in range(20):
+		print(rand_let)
+		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10),50))
 		await get_tree().create_timer(1).timeout
+	
 
 func wave2():
 	var rand_word = 'placeholder' #tu kiedyß bedzie czytac z listy slow destruktywnych
