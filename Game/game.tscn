@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3jn04s0a6b4a"]
+[gd_scene load_steps=12 format=3 uid="uid://3jn04s0a6b4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://o5sjtvexucuj" path="res://UI/in_game.tscn" id="2_1r4le"]
@@ -17,6 +17,12 @@ colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fwxkx"]
 gradient = SubResource("Gradient_jcm6v")
+
+[sub_resource type="Gradient" id="Gradient_fwxkx"]
+colors = PackedColorArray(0.777882, 0.777882, 0.777882, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qmv3x"]
+gradient = SubResource("Gradient_fwxkx")
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -70,3 +76,13 @@ layout_mode = 1
 mouse_filter = 2
 
 [node name="Audio" parent="." instance=ExtResource("5_fwxkx")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_qmv3x")

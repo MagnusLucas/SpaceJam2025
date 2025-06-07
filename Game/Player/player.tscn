@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcr12mk08na2v"]
+[gd_scene load_steps=24 format=3 uid="uid://bcr12mk08na2v"]
 
 [ext_resource type="Script" uid="uid://c0xg0ea5khqwe" path="res://Game/Player/Player.gd" id="1_s3asc"]
 [ext_resource type="Texture2D" uid="uid://6ni5en5h510w" path="res://Game/Player/cowboy_tileset_01.png" id="2_s3asc"]
+[ext_resource type="AudioStream" uid="uid://c1xku6ra8olc5" path="res://Game/Audio/347546__masgame__swoosh-sound-1.mp3" id="3_letr6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3asc"]
 
@@ -155,6 +156,8 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_letr6")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+
 [node name="Node2D" type="Node2D" parent="."]
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D"]
@@ -170,3 +173,7 @@ texture_progress = SubResource("GradientTexture1D_segth")
 [node name="Timer" type="Timer" parent="Node2D"]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_letr6")
+bus = &"SFX"
