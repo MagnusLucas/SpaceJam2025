@@ -27,10 +27,136 @@
 		},
 		"type": "KILL"
 	},
+	"book": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "2"
+		},
+		"type": "STOP"
+	},
+	"box": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "3"
+		},
+		"type": "STOP"
+	},
+	"bug": {
+		"atlas_coords": {
+			"x": "2",
+			"y": "2"
+		},
+		"type": "KILL"
+	},
+	"cow": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "1"
+		},
+		"type": "STOP"
+	},
+	"hat": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "0"
+		},
+		"type": "KILL"
+	},
+	"head": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
+	"hole": {
+		"atlas_coords": {
+			"x": "2",
+			"y": "4"
+		},
+		"type": "KILL"
+	},
+	"leaf": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "5"
+		},
+		"type": "STOP"
+	},
+	"lego": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "0"
+		},
+		"type": "STOP"
+	},
+	"log": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "5"
+		},
+		"type": "STOP"
+	},
+	"moo": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "1"
+		},
+		"type": "STOP"
+	},
+	"rock": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "3"
+		},
+		"type": "STOP"
+	},
 	"sass": {
 		"atlas_coords": {
 			"x": "1",
 			"y": "2"
+		},
+		"type": "SLOW"
+	},
+	"skull": {
+		"atlas_coords": {
+			"x": "3",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
+	"spider": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "4"
+		},
+		"type": "SLOW"
+	},
+	"stone": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "3"
+		},
+		"type": "STOP"
+	},
+	"tree": {
+		"atlas_coords": {
+			"x": "2",
+			"y": "5"
+		},
+		"type": "STOP"
+	},
+	"wall": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
+	"web": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "4"
 		},
 		"type": "SLOW"
 	}
