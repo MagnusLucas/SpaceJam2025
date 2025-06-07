@@ -22,6 +22,6 @@ func clear() -> void:
 func check() -> void:
 	for key in data:
 		if key == $Label.text:
-			print("!word: ", key)
-			return
+			get_node("/root/Game/Control/Map").add_terrain(key, data[key])
+			$Label.text = ""
 	

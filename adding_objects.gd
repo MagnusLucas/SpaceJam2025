@@ -17,7 +17,9 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	data[$VBoxContainer/LineEdit.text] = {}
 	data[$VBoxContainer/LineEdit.text]["type"] = $VBoxContainer/ItemList.get_item_text($VBoxContainer/ItemList.get_selected_items()[0])
-	data[$VBoxContainer/LineEdit.text]["atlas_coords"] = Vector2i(int($VBoxContainer/HBoxContainer/LineEdit.text),
-		int($VBoxContainer/HBoxContainer/LineEdit2.text))
+	data[$VBoxContainer/LineEdit.text]["atlas_coords"] = {}
+	data[$VBoxContainer/LineEdit.text]["atlas_coords"]["x"] = $VBoxContainer/HBoxContainer/LineEdit.text
+	data[$VBoxContainer/LineEdit.text]["atlas_coords"]["y"] = $VBoxContainer/HBoxContainer/LineEdit2.text
+
 	var file = FileAccess.open("res://Game/GameData.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(data))
