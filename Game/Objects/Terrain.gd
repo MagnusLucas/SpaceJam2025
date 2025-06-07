@@ -22,6 +22,7 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	for letter in used_name:
 		terrain.affected_letters[letter] = true
 	terrain.used_name = used_name
+	terrain.effect = effect
 	
 	const A_OFFSET : int = 95
 	terrain.set_collision_layer_value(1, true)
@@ -29,3 +30,21 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 		var unicode = letter.unicode_at(0) - A_OFFSET
 		terrain.set_collision_layer_value(unicode, true)
 	return terrain
+
+func _ready() -> void:
+	if effect == EffectType.STOP:
+		$StaticBody2D.process_mode = Node.PROCESS_MODE_INHERIT
+	for layer in range(32):
+		$StaticBody2D.set_collision_layer_value(layer + 1, get_collision_layer_value(layer + 1))
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Enemy and effect == EffectType.SLOW:
+		body.velocity *= .1
+	elif body is Enemy and effect == EffectType.KILL:
+		body.queue_free()
+
+
+func _on_body_exited(body: Node2D) -> void:
+	if body is Enemy and effect == EffectType.SLOW:
+		body.velocity *= 10
