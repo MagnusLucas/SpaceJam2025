@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfxj06crl4ehu"]
+
+[ext_resource type="AudioStream" uid="uid://c8thjnjde0q6u" path="res://Game/Audio/1 - attack hat.wav" id="1_8ccdq"]
+[ext_resource type="Script" uid="uid://cnm3t6csgjw18" path="res://Game/audio.gd" id="1_ys88w"]
+[ext_resource type="AudioStream" uid="uid://d502ns0jwi2u" path="res://Game/Audio/2 - bass.wav" id="2_ys88w"]
+[ext_resource type="AudioStream" uid="uid://bv2g38k3gnt10" path="res://Game/Audio/3 - splash.wav" id="3_ib7y1"]
+[ext_resource type="AudioStream" uid="uid://ch7hj6qdnh3em" path="res://Game/Audio/4 - shaker.wav" id="4_8od47"]
+[ext_resource type="AudioStream" uid="uid://bpucym70rvt1t" path="res://Game/Audio/5 - cowbell.wav" id="5_hfdlf"]
+[ext_resource type="AudioStream" uid="uid://105yqd2kent" path="res://Game/Audio/6 - guitar.wav" id="6_i074b"]
+[ext_resource type="AudioStream" uid="uid://c3g6j3v0oi5uv" path="res://Game/Audio/7 - guitar #2.wav" id="7_5bjv5"]
+[ext_resource type="AudioStream" uid="uid://bj3cjk8vfc0ew" path="res://Game/Audio/8 - NES.wav" id="8_hdwre"]
+[ext_resource type="AudioStream" uid="uid://byiit42d65u7a" path="res://Game/Audio/9 - banjo.wav" id="9_lsego"]
+[ext_resource type="AudioStream" uid="uid://cgigl416fcwox" path="res://Game/Audio/10 - organ.wav" id="10_6cb5e"]
+[ext_resource type="AudioStream" uid="uid://d1hasveoy2a5k" path="res://Game/Audio/11 optional - X tts.wav" id="11_u5emh"]
+
+[node name="Audio" type="Node2D"]
+script = ExtResource("1_ys88w")
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_8ccdq")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ys88w")
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ib7y1")
+bus = &"Music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8od47")
+bus = &"Music"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hfdlf")
+bus = &"Music"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_i074b")
+bus = &"Music"
+
+[node name="AudioStreamPlayer7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5bjv5")
+bus = &"Music"
+
+[node name="AudioStreamPlayer8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hdwre")
+bus = &"Music"
+
+[node name="AudioStreamPlayer9" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_lsego")
+bus = &"Music"
+
+[node name="AudioStreamPlayer10" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_6cb5e")
+bus = &"Music"
+
+[node name="AudioStreamPlayer11" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_u5emh")
+bus = &"Music"
+
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_audio_stream_player_2_finished"]

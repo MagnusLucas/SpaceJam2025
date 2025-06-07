@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://105yqd2kent"
+path="res://.godot/imported/6 - guitar.wav-5f0dc3ff73152c92c892118a73e56ab8.sample"
+
+[deps]
+
+source_file="res://Game/Audio/6 - guitar.wav"
+dest_files=["res://.godot/imported/6 - guitar.wav-5f0dc3ff73152c92c892118a73e56ab8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
