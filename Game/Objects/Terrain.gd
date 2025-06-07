@@ -33,6 +33,8 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 		terrain.set_collision_mask_value(unicode, true)
 	return terrain
 
+func _ready() -> void:
+	$Label.text = used_name
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:
@@ -49,3 +51,12 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_body_exited(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:
 		body.speed *= 10
+
+
+func _on_mouse_entered() -> void:
+	print("showing")
+	$Label.show()
+
+
+func _on_mouse_exited() -> void:
+	$Label.hide()
