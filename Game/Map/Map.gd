@@ -26,11 +26,15 @@ func _ready() -> void:
 	add_child(player)
 	$"../../LoseOverlay".hide()
 	$"Player/Node2D/TextureProgressBar".show()
-	$"../../TextureProgressBar".value = 100
+	#$"../../TextureProgressBar".value = 100
+	update_health()
 	wave0()
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
-	wave2()
+	for i in range(50):
+		expo_wave(i, Vector2(-400,-320),Vector2i(400,-310))
+		while get_tree().get_node_count_in_group("Enemy") != 0:
+			await get_tree().create_timer(0.2).timeout
 	
 func update_terrain(prev_pos : Vector2i, curr_pos : Vector2i, terrain : Terrain) -> void:
 	var atlas_coords = get_cell_atlas_coords(prev_pos)
@@ -55,11 +59,10 @@ func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	set_cell(terrain_position, 0, Vector2i(int(info["atlas_coords"]["x"]), int(info["atlas_coords"]["y"])))
 
 func update_health():
-	print(health)
 	if health <= 0:
 		lose()
 	@warning_ignore("integer_division")
-	$"../../TextureProgressBar".value = health / max_health * 100
+	$"../../TextureProgressBar".value = int(float(health) / float(max_health)*100)
 
 
 func lose():
@@ -84,7 +87,7 @@ func first_drop(rand_let, loc1 : Vector2i, loc2 : Vector2i, time : int = 1 ):
 	var rand_let_par = rand_let.duplicate()
 	for i in range(len(rand_let_par)):
 		var let = rand_let_par.pick_random()
-		var new_enemy = Enemy.new_enemy(let,loc1,loc2)
+		var new_enemy = Enemy.new_enemy(let,loc1,loc2,100)
 		add_child(new_enemy)
 		rand_let_par.erase(let)
 		await get_tree().create_timer(time).timeout
@@ -153,7 +156,7 @@ func wave6():
 	for i in range(2):
 		var rand_word = random_word() #tu kiedyß bedzie czytac z listy slow destruktywnych
 		rand_let = rand_let + string_to_array(rand_word)
-	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
+	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),10)
 	for i in range(4):
 		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10)))
 		await get_tree().create_timer(1).timeout

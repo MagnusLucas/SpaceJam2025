@@ -17,11 +17,24 @@ enum EffectType{
 	KILL
 }
 
+func _ready() -> void:
+	if used_name == 'base':
+		$Polygon2D.color='b246ff78'
+	elif effect == EffectType.SLOW:
+		$Polygon2D.color='00ff0078'
+	elif effect == EffectType.KILL:
+		$Polygon2D.color='ff000078'
+	elif effect == EffectType.STOP:
+		$Polygon2D.color='0000ff78'
 @warning_ignore("shadowed_variable")
 static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	var terrain = collision_scene.instantiate()
-	for letter in used_name:
-		terrain.affected_letters[letter] = true
+	if used_name == 'base':
+		for letter in 'abcdefghijklmnopqrstuvwxyz':
+			terrain.affected_letters[letter] = true
+	else:
+		for letter in used_name:
+			terrain.affected_letters[letter] = true
 	terrain.used_name = used_name
 	terrain.effect = effect
 	
@@ -39,7 +52,7 @@ func _on_body_entered(body: Node2D) -> void:
 		body.speed *= .1
 	elif body is Enemy and effect == EffectType.KILL:
 		if self.used_name == "base":
-			$"../".health -= 10
+			$"../".health -= 100
 			$"../".update_health()
 		body.queue_free()
 	if body is Enemy and effect == EffectType.STOP:

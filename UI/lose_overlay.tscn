@@ -19,6 +19,17 @@ offset_right = 1153.0
 offset_bottom = 646.0
 color = Color(0.345098, 0, 0.827451, 0.352941)
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -109.5
+offset_right = 109.5
+offset_bottom = 69.0
+grow_horizontal = 2
+color = Color(0.345098, 0, 0.827451, 1)
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 2
 anchor_left = 0.5
