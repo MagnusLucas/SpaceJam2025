@@ -55,6 +55,5 @@ func _process(delta: float) -> void:
 			get_node("/root/Game/Word").clear()
 			
 	$Node2D/TextureProgressBar.value = $Node2D/Timer.time_left/$Node2D/Timer.wait_time*100
-	print($Node2D/TextureProgressBar.value)
 	$Node2D/TextureProgressBar.global_position = global_position + Vector2(40, -20)
 	

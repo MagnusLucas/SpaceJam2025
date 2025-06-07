@@ -8,13 +8,13 @@ image_atlas_coords = Vector2i(-3, 3)
 object_names = Array[String](["base"])
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, 0, -3.464, -7, 3.464, -7, 8, 0, 3.464, 7, -3.464, 7)
+polygon = PackedVector2Array(-40, 0, -17.32, -35, 17.32, -35, 40, 0, 17.32, 35, -17.32, 35)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 process_mode = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(-8, 0, -3.464, -7, 3.464, -7, 8, 0, 3.464, 7, -3.464, 7)
+polygon = PackedVector2Array(-40, 0, -17.32, -35, 17.32, -35, 40, 0, 17.32, 35, -17.32, 35)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

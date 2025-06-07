@@ -1,1 +1,37 @@
-{"base":{"atlas_coords":{"x":"3","y":"3"},"type":"KILL"}}
+{
+	"ass": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "3"
+		},
+		"type": "KILL"
+	},
+	"baa": {
+		"atlas_coords": {
+			"x": "2",
+			"y": "0"
+		},
+		"type": "SLOW"
+	},
+	"base": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "6"
+		},
+		"type": "KILL"
+	},
+	"bee": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "5"
+		},
+		"type": "KILL"
+	},
+	"sass": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "2"
+		},
+		"type": "SLOW"
+	}
+}
