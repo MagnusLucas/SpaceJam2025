@@ -1,7 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://3jn04s0a6b4a"]
+[gd_scene load_steps=8 format=3 uid="uid://3jn04s0a6b4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://o5sjtvexucuj" path="res://UI/in_game.tscn" id="2_1r4le"]
+[ext_resource type="PackedScene" uid="uid://b45w60mgs3oiy" path="res://UI/lose_overlay.tscn" id="3_7raqb"]
+
+[sub_resource type="Gradient" id="Gradient_1r4le"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7raqb"]
+gradient = SubResource("Gradient_1r4le")
+
+[sub_resource type="Gradient" id="Gradient_jcm6v"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fwxkx"]
+gradient = SubResource("Gradient_jcm6v")
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -25,3 +38,20 @@ grow_vertical = 2
 
 [node name="Word" parent="." instance=ExtResource("2_1r4le")]
 layout_mode = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -367.0
+offset_top = -40.0
+offset_right = 367.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_under = SubResource("GradientTexture1D_7raqb")
+texture_progress = SubResource("GradientTexture1D_fwxkx")
+
+[node name="LoseOverlay" parent="." instance=ExtResource("3_7raqb")]
