@@ -9,7 +9,7 @@ func string_to_array(str):
 
 #funkcja na pierwszy drop wavea, po to zeby nie bylo 5 razy b na start XD	
 func first_drop(rand_let, loc1 : Vector2i, loc2 : Vector2i, time : int = 1 ):
-	for i in range(4):
+	for i in range(len(rand_let)):
 		var let = rand_let.pick_random()
 		add_child(Enemy.new_enemy(let,loc1,loc2))
 		rand_let.erase(let)
@@ -30,7 +30,7 @@ func duplicates_check(string):
 func wave0():
 	pass
 func wave1():
-	print('kurwa I did ti')
+	
 	var rand_let = ['b','a','s','e']
 	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
 	for i in range(4):
@@ -64,9 +64,9 @@ func wave11():
 		var rand_word = 'placeholder' #tu kiedyß bedzie czytac z listy slow destruktywnych
 		rand_let = rand_let + string_to_array(rand_word)
 	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
-	for i in range(4):
-		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10)))
-		await get_tree().create_timer(1).timeout
+	#for i in range(4):
+		#add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10)))
+		#await get_tree().create_timer(1).timeout
 		
 func expo_wave(lvl : int, loc1 : Vector2i, loc2 : Vector2i):
 	var rand_let : Array
