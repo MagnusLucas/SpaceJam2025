@@ -34,6 +34,8 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	return terrain
 
 func _ready() -> void:
+	if used_name == "base":
+		$"../Enemy/Marker2D".position = position
 	if effect == EffectType.STOP:
 		$StaticBody2D.process_mode = Node.PROCESS_MODE_INHERIT
 	for layer in range(32):

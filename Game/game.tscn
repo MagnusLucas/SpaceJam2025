@@ -12,7 +12,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_1r4le")
 
 [sub_resource type="Gradient" id="Gradient_jcm6v"]
-colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_fwxkx"]
 gradient = SubResource("Gradient_jcm6v")

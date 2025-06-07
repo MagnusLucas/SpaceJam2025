@@ -26,10 +26,12 @@ func _ready() -> void:
 	add_child(player)
 	$"../../LoseOverlay".hide()
 	$"Player/Node2D/TextureProgressBar".show()
+	$"../../TextureProgressBar".value = 100
 	wave0()
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	wave1()
+	print(health)
 	
 
 func add_terrain(terrain_name : String, info : Dictionary) -> void:
@@ -43,6 +45,7 @@ func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	set_cell(terrain_position, 0, Vector2i(int(info["atlas_coords"]["x"]), int(info["atlas_coords"]["y"])))
 
 func update_health():
+	print(health)
 	if health <= 0:
 		lose()
 	@warning_ignore("integer_division")
@@ -110,10 +113,10 @@ func wave0():
 	
 func wave1():
 	var rand_let = ['b','a','s','e']
-	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
-	for i in range(20):
-		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10),50))
-		await get_tree().create_timer(1).timeout
+	first_drop(rand_let,Vector2i(-400,-320),Vector2i(400,-310),2)
+	#for i in range(20):
+		#add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(-400,-320),Vector2i(400,-310),50))
+		#await get_tree().create_timer(1).timeout
 	
 
 func wave2():
