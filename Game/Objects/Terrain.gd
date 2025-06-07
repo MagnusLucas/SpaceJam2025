@@ -19,7 +19,6 @@ enum EffectType{
 @warning_ignore("shadowed_variable")
 static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	var terrain = collision_scene.instantiate()
-	print_debug("this should be first")
 	for letter in used_name:
 		terrain.affected_letters[letter] = true
 	terrain.used_name = used_name
