@@ -19,6 +19,7 @@ enum EffectType{
 @warning_ignore("shadowed_variable")
 static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	var terrain = collision_scene.instantiate()
+	print_debug("this should be first")
 	for letter in used_name:
 		terrain.affected_letters[letter] = true
 	terrain.used_name = used_name
@@ -29,6 +30,7 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 	for letter : String in terrain.affected_letters.keys():
 		var unicode = letter.unicode_at(0) - A_OFFSET
 		terrain.set_collision_layer_value(unicode, true)
+		terrain.set_collision_mask_value(unicode, true)
 	return terrain
 
 func _ready() -> void:
@@ -36,17 +38,20 @@ func _ready() -> void:
 		$StaticBody2D.process_mode = Node.PROCESS_MODE_INHERIT
 	for layer in range(32):
 		$StaticBody2D.set_collision_layer_value(layer + 1, get_collision_layer_value(layer + 1))
+		$StaticBody2D.set_collision_mask_value(layer + 1, get_collision_mask_value(layer + 1))
 
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:
-		body.velocity *= .1
+		body.speed *= .1
 	elif body is Enemy and effect == EffectType.KILL:
 		if body.name == "baza":
 			pass
 		body.queue_free()
+	if body is Enemy and effect == EffectType.STOP:
+		body.speed *= 0
 
 
 func _on_body_exited(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:
-		body.velocity *= 10
+		body.speed *= 10
