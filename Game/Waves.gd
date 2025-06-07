@@ -50,7 +50,6 @@ func wave1():
 	var rand_let = ['b','a','s','e']
 	first_drop(rand_let,Vector2i(50,-20),Vector2i(1100,-10),2)
 	for i in range(20):
-		print(rand_let)
 		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(50,-20),Vector2i(1100,-10),50))
 		await get_tree().create_timer(1).timeout
 	

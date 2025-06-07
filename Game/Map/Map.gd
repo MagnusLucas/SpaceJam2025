@@ -21,7 +21,7 @@ func _ready() -> void:
 	player = Player.new_player()
 	add_child(player)
 	add_child(Terrain.new_terrain("abcdefghijklmnoprstqwxyz", Terrain.EffectType.STOP))
-	#Waves.wave0()
+	Waves.wave0()
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	Waves.wave1()

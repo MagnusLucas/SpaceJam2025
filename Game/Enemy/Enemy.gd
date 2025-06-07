@@ -12,6 +12,7 @@ var move : bool
 #direction to destination, basically the angle to the base
 var dir_to_des : Vector2
 func _ready() -> void:
+	$Marker2D.position = get_node("/root/Game/Control").position
 	$Label.text = letter
 	position = start_pos
 	destination = $Marker2D.position
