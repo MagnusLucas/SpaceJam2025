@@ -73,6 +73,15 @@ func lose():
 	$Player/Node2D/TextureProgressBar.hide()
 	$"../../LoseOverlay".show()
 
+func get_intensity() -> int:
+	return get_child_count() * 5
+
+func has_x() -> bool:
+	for child in get_children():
+		if child is Enemy:
+			if child.letter == "x":
+				return true
+	return false
 
 #--------------------------------------------------------------------------------------------------------
 #----------------------------------------waves part------------------------------------------------------

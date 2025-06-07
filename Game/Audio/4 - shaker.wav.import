@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ch7hj6qdnh3em"
+path="res://.godot/imported/4 - shaker.wav-9c49eef6f0ad3d976ae78e9446f0add7.sample"
+
+[deps]
+
+source_file="res://Game/Audio/4 - shaker.wav"
+dest_files=["res://.godot/imported/4 - shaker.wav-9c49eef6f0ad3d976ae78e9446f0add7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
