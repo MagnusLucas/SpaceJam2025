@@ -16,6 +16,6 @@ func _ready() -> void:
 	position -= Vector2(-8, -7) #centering the center hex
 	var player = Player.new_player()
 	add_child(player)
-	add_child(StopTerrain.new_terrain("abcdefghijklmnoprstqwxyz"))
+	add_child(Terrain.new_terrain("abcdefghijklmnoprstqwxyz", Terrain.EffectType.STOP))
 	Waves.wave0()
 	
