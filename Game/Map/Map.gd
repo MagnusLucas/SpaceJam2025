@@ -27,7 +27,7 @@ func _ready() -> void:
 	$"../../LoseOverlay".hide()
 	$"Player/Node2D/TextureProgressBar".show()
 	$"../../TextureProgressBar".value = 100
-	#wave0()
+	wave0()
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	wave2()
