@@ -29,12 +29,15 @@ func duplicates_check(string):
 #wave0 to bedzie turorial
 func wave0():
 	add_child(Enemy.new_enemy('b',Vector2i(250,250),Vector2i(250,250),10,false))
-	print(get_tree().get_node_count_in_group("Enemy") == 4)
-	await get_tree().get_node_count_in_group("Enemy") == 4
+	print(get_tree().get_node_count_in_group("Enemy") != 0)
+	while get_tree().get_node_count_in_group("Enemy") != 0:
+		await get_tree().create_timer(0.2).timeout
 	add_child(Enemy.new_enemy('a',Vector2i(50,-20),Vector2i(1100,-10)))
-	await get_tree().get_node_count_in_group("Enemy") == 0
+	while get_tree().get_node_count_in_group("Enemy") != 0:
+		await get_tree().create_timer(0.2).timeout
 	add_child(Enemy.new_enemy('s',Vector2i(50,-20),Vector2i(1100,-10)))
-	await get_tree().get_node_count_in_group("Enemy") == 0
+	while get_tree().get_node_count_in_group("Enemy") != 0:
+		await get_tree().create_timer(0.2).timeout
 	add_child(Enemy.new_enemy('e',Vector2i(50,-20),Vector2i(1100,-10)))
 	
 	pass
