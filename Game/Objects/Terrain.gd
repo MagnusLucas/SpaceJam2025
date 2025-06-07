@@ -31,11 +31,9 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 		var unicode = letter.unicode_at(0) - A_OFFSET
 		terrain.set_collision_layer_value(unicode, true)
 		terrain.set_collision_mask_value(unicode, true)
-	print_debug("this should be first")
 	return terrain
 
 func _ready() -> void:
-	print_debug("this should be second")
 	if effect == EffectType.STOP:
 		$StaticBody2D.process_mode = Node.PROCESS_MODE_INHERIT
 	for layer in range(32):
@@ -48,6 +46,8 @@ func _on_body_entered(body: Node2D) -> void:
 		body.speed *= .1
 	elif body is Enemy and effect == EffectType.KILL:
 		body.queue_free()
+	if body is Enemy and effect == EffectType.STOP:
+		body.speed *= 0
 
 
 func _on_body_exited(body: Node2D) -> void:
