@@ -4,6 +4,9 @@ var data : Dictionary
 
 func _ready() -> void:
 	load_data()
+	$"../PauseOverlay".hide()
+	$"../Control/Map/Player/Node2D/TextureProgressBar".show()
+	get_tree().paused = false
 
 func load_data() -> void:
 	var file = FileAccess.open("res://Game/GameData.json", FileAccess.READ)
@@ -25,3 +28,17 @@ func check() -> void:
 			get_node("/root/Game/Control/Map").add_terrain(key, data[key])
 			$Label.text = ""
 	
+
+
+#func _on_gui_input(event: InputEvent) -> void:
+	#print('fggdf')
+	#if event.is_action("pause"):
+		#get_tree().paused = true
+		#$"../../LoseOverlay".show()
+		#pass
+func _unhandled_input(event : InputEvent) -> void:
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_ESCAPE:
+			get_tree().paused = true
+			$"../PauseOverlay".show()
+			$"../Control/Map/Player/Node2D/TextureProgressBar".hide()
