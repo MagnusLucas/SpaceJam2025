@@ -1,10 +1,6 @@
 extends Control
 var dir := DirAccess.open("res://Game/Objects/")
 
-func _ready() -> void:
-	pass
-	
-
 func add_letter(letter : String) -> void:
 	$Label.text += letter
 

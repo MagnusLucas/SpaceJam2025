@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3jn04s0a6b4a"]
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
-[ext_resource type="PackedScene" uid="uid://3ttfnte1e2b8" path="res://UI/in_game.tscn" id="2_1r4le"]
+[ext_resource type="PackedScene" uid="uid://o5sjtvexucuj" path="res://UI/in_game.tscn" id="2_1r4le"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
