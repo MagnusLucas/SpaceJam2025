@@ -45,8 +45,9 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:
 		body.speed *= .1
 	elif body is Enemy and effect == EffectType.KILL:
-		if body.name == "baza":
-			pass
+		if self.used_name == "base":
+			$"../".health -= 10
+			$"../".update_health()
 		body.queue_free()
 	if body is Enemy and effect == EffectType.STOP:
 		body.speed *= 0

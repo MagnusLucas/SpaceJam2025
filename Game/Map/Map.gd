@@ -8,7 +8,7 @@ var player : Player
 
 var terrains : Dictionary
 
-var max_health : int 
+var max_health : int = 1000
 var health : int = max_health
 
 static func new_map() -> Map:
@@ -46,7 +46,7 @@ func update_health():
 	if health <= 0:
 		lose()
 	@warning_ignore("integer_division")
-	get_node("root/Game/TextureProgressBar").value = health / max_health * 100
+	$"../../TextureProgressBar".value = health / max_health * 100
 
 func _process(_delta):
 	if Input.is_key_label_pressed(KEY_L):
@@ -95,16 +95,16 @@ func wave_dead():
 #----------------
 #wave0 to bedzie turorial
 func wave0():
-	add_child(Enemy.new_enemy('b',Vector2i(250,250),Vector2i(250,250),10,false))
+	add_child(Enemy.new_enemy('b',Vector2i(-250,-250),Vector2i(-250,-250),10,false))
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
-	add_child(Enemy.new_enemy('a',Vector2i(50,-20),Vector2i(1100,-10)))
+	add_child(Enemy.new_enemy('a',Vector2i(-400,-320),Vector2i(400,-310)))
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
-	add_child(Enemy.new_enemy('s',Vector2i(50,-20),Vector2i(1100,-10)))
+	add_child(Enemy.new_enemy('s',Vector2i(-400,-320),Vector2i(400,-310)))
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
-	add_child(Enemy.new_enemy('e',Vector2i(50,-20),Vector2i(1100,-10)))
+	add_child(Enemy.new_enemy('e',Vector2i(-400,-320),Vector2i(400,-310)))
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	
