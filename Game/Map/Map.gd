@@ -28,7 +28,6 @@ func _ready() -> void:
 	
 
 func add_terrain(terrain_name : String, info : Dictionary) -> void:
-	print(terrain_name)
 	var terrain_position = local_to_map(player.position)
 	var terrain = Terrain.new_terrain(terrain_name, Terrain.EffectType[info["type"]])
 	terrains[terrain_position] = terrain
