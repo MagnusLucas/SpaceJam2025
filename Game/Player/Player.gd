@@ -4,6 +4,8 @@ class_name Player
 const player_scene = preload("res://Game/Player/player.tscn")
 const MAX_SPEED : int = 100
 
+var terrain : Terrain
+
 static func new_player():
 	return player_scene.instantiate()
 
@@ -41,7 +43,8 @@ func _process(delta: float) -> void:
 		move_direction += Vector2.LEFT
 	if Input.is_action_pressed("move_right"):
 		move_direction += Vector2.RIGHT
-	rotation = move_direction.angle() - Vector2.UP.angle()
+	if move_direction:
+		rotation = move_direction.angle() - Vector2.UP.angle()
 	position += move_direction * MAX_SPEED * delta
 	
 	if Input.is_action_just_pressed("catch_letter"):
@@ -53,7 +56,12 @@ func _process(delta: float) -> void:
 		var map = get_parent()
 		if map.is_close_to_base(position):
 			get_node("/root/Game/Word").clear()
-			
+	
+	if Input.is_action_just_pressed("pick_terrain"):
+		var map : Map = get_parent()
+		if map.terrains.has(map.local_to_map(position)):
+			terrain = map.terrains[map.local_to_map(position)]
+	
 	$Node2D/TextureProgressBar.value = $Node2D/Timer.time_left/$Node2D/Timer.wait_time*100
 	$Node2D/TextureProgressBar.global_position = global_position + Vector2(40, -20)
 	
