@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bcr12mk08na2v"]
+[gd_scene load_steps=30 format=3 uid="uid://bcr12mk08na2v"]
 
 [ext_resource type="Script" uid="uid://c0xg0ea5khqwe" path="res://Game/Player/Player.gd" id="1_s3asc"]
 [ext_resource type="Texture2D" uid="uid://6ni5en5h510w" path="res://Game/Player/cowboy_tileset_01.png" id="2_s3asc"]
 [ext_resource type="AudioStream" uid="uid://c1xku6ra8olc5" path="res://Game/Audio/347546__masgame__swoosh-sound-1.mp3" id="3_letr6"]
+[ext_resource type="Texture2D" uid="uid://b8t3rfs88ki2q" path="res://Game/Player/net.png" id="3_vytja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3asc"]
 
@@ -118,6 +119,47 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_letr6"]
 radius = 40.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqhgd"]
+atlas = ExtResource("3_vytja")
+region = Rect2(0, 0, 79, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v7ly"]
+atlas = ExtResource("3_vytja")
+region = Rect2(79, 0, 79, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4lia"]
+atlas = ExtResource("3_vytja")
+region = Rect2(158, 0, 79, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akrrf"]
+atlas = ExtResource("3_vytja")
+region = Rect2(158, 0, 79, 70)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17fuy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqhgd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v7ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4lia")
+}],
+"loop": false,
+"name": &"catch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akrrf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Gradient" id="Gradient_s3asc"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
 
@@ -157,6 +199,7 @@ input_pickable = false
 shape = SubResource("CircleShape2D_letr6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
+sprite_frames = SubResource("SpriteFrames_17fuy")
 
 [node name="Node2D" type="Node2D" parent="."]
 
@@ -176,3 +219,5 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_letr6")
+
+[connection signal="animation_finished" from="Area2D/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
