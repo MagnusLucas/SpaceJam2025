@@ -37,6 +37,7 @@ func try_to_catch_letter() -> String:
 func _process(delta: float) -> void:
 	var map : Map = get_parent()
 	var move_direction : Vector2 = Vector2(0,0)
+	var previous_position_2 : Vector2 = position
 	if Input.is_action_pressed("move_up"):
 		move_direction += Vector2.UP
 		$Sprite2D/AnimatedSprite2D.play("up_run")
@@ -49,10 +50,13 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("move_right"):
 		move_direction += Vector2.RIGHT
 		$Sprite2D/AnimatedSprite2D.play("right_run")
-	if move_direction:
-		rotation = move_direction.angle() - Vector2.UP.angle()
+	#if move_direction:
+		#rotation = move_direction.angle() - Vector2.UP.angle()
 	previous_position = map.local_to_map(position)
 	position += move_direction * MAX_SPEED * delta
+	if previous_position_2 == position:
+		$Sprite2D/AnimatedSprite2D.stop()
+		$Sprite2D/AnimatedSprite2D.frame = 0
 	
 	if previous_position != map.local_to_map(position) and terrain:
 		map.update_terrain(previous_position, map.local_to_map(position), terrain)

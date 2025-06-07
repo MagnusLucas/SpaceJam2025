@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dyxkxqw5yb028" path="res://Game/Map/map.tscn" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://o5sjtvexucuj" path="res://UI/in_game.tscn" id="2_1r4le"]
-[ext_resource type="PackedScene" path="res://UI/lose_overlay.tscn" id="3_7raqb"]
-[ext_resource type="PackedScene" path="res://UI/pause_overlay.tscn" id="4_jcm6v"]
+[ext_resource type="PackedScene" uid="uid://b45w60mgs3oiy" path="res://UI/lose_overlay.tscn" id="3_7raqb"]
+[ext_resource type="PackedScene" uid="uid://conebkyfc4v3e" path="res://UI/pause_overlay.tscn" id="4_jcm6v"]
 [ext_resource type="PackedScene" uid="uid://bfxj06crl4ehu" path="res://Game/Audio/audio.tscn" id="5_fwxkx"]
 
 [sub_resource type="Gradient" id="Gradient_1r4le"]
