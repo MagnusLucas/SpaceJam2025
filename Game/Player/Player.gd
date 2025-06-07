@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("catch_letter"):
 		var letter = try_to_catch_letter()
+		$AudioStreamPlayer.play()
 		if letter:
 			get_node("/root/Game/Word").add_letter(letter)
 	
