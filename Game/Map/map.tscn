@@ -38,7 +38,7 @@ texture_region_size = Vector2i(80, 70)
 tile_shape = 3
 tile_offset_axis = 1
 tile_size = Vector2i(80, 70)
-sources/1 = SubResource("TileSetAtlasSource_60ibj")
+sources/0 = SubResource("TileSetAtlasSource_60ibj")
 
 [node name="Map" type="TileMapLayer"]
 tile_set = SubResource("TileSet_60ibj")
