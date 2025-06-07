@@ -20,7 +20,6 @@ func _ready() -> void:
 	position -= Vector2(-8, -7) #centering the center hex
 	player = Player.new_player()
 	add_child(player)
-	add_child(Terrain.new_terrain("abcdefghijklmnoprstqwxyz", Terrain.EffectType.STOP))
 	Waves.wave0()
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
@@ -29,6 +28,8 @@ func _ready() -> void:
 
 func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	var terrain_position = local_to_map(player.position)
+	if terrain_name == "base":
+		terrain_position = local_to_map(position)
 	var terrain = Terrain.new_terrain(terrain_name, Terrain.EffectType[info["type"]])
 	terrains[terrain_position] = terrain
 	add_child(terrain)
