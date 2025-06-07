@@ -39,12 +39,16 @@ func _process(delta: float) -> void:
 	var move_direction : Vector2 = Vector2(0,0)
 	if Input.is_action_pressed("move_up"):
 		move_direction += Vector2.UP
+		$Sprite2D/AnimatedSprite2D.play("up_run")
 	if Input.is_action_pressed("move_down"):
 		move_direction += Vector2.DOWN
+		$Sprite2D/AnimatedSprite2D.play("down_run")
 	if Input.is_action_pressed("move_left"):
 		move_direction += Vector2.LEFT
+		$Sprite2D/AnimatedSprite2D.play("left_run")
 	if Input.is_action_pressed("move_right"):
 		move_direction += Vector2.RIGHT
+		$Sprite2D/AnimatedSprite2D.play("right_run")
 	if move_direction:
 		rotation = move_direction.angle() - Vector2.UP.angle()
 	previous_position = map.local_to_map(position)
@@ -66,8 +70,10 @@ func _process(delta: float) -> void:
 		if !terrain and map.terrains.has(map.local_to_map(position)):
 			if map.terrains[map.local_to_map(position)].movable:
 				terrain = map.terrains[map.local_to_map(position)]
+				terrain.process_mode = Node.PROCESS_MODE_DISABLED
 		elif terrain:
 			map.update_terrain(previous_position, map.local_to_map(position), terrain)
+			terrain.process_mode = Node.PROCESS_MODE_INHERIT
 			terrain = null
 	
 	$Node2D/TextureProgressBar.value = $Node2D/Timer.time_left/$Node2D/Timer.wait_time*100

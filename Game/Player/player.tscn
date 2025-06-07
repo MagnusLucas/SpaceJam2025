@@ -1,9 +1,118 @@
-[gd_scene load_steps=9 format=3 uid="uid://bcr12mk08na2v"]
+[gd_scene load_steps=23 format=3 uid="uid://bcr12mk08na2v"]
 
-[ext_resource type="Texture2D" uid="uid://bmaic873k7whi" path="res://icon.svg" id="1_m57qa"]
 [ext_resource type="Script" uid="uid://c0xg0ea5khqwe" path="res://Game/Player/Player.gd" id="1_s3asc"]
+[ext_resource type="Texture2D" uid="uid://6ni5en5h510w" path="res://Game/Player/cowboy_tileset_01.png" id="2_s3asc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3asc"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_m57qa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_letr6"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(0, 207, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vytja"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(79, 207, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_segth"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(158, 207, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2hw7"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(0, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ch4ko"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(79, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh1aq"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(158, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ddeg"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(0, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db2hk"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(79, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0m6d"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(158, 138, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwver"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(0, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfw5o"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(79, 0, 79, 69)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wlpas"]
+atlas = ExtResource("2_s3asc")
+region = Rect2(158, 0, 79, 69)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_akrrf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_letr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vytja")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_segth")
+}],
+"loop": true,
+"name": &"down_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2hw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ch4ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh1aq")
+}],
+"loop": true,
+"name": &"left_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ddeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db2hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0m6d")
+}],
+"loop": true,
+"name": &"right_run",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwver")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfw5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wlpas")
+}],
+"loop": true,
+"name": &"up_run",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_letr6"]
 radius = 40.0
@@ -30,7 +139,12 @@ shape = SubResource("CircleShape2D_s3asc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.46, 0.46)
-texture = ExtResource("1_m57qa")
+texture = SubResource("AnimatedTexture_m57qa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_akrrf")
+animation = &"down_run"
+frame_progress = 0.901953
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -50)
