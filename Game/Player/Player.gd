@@ -60,6 +60,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("catch_letter"):
 		var letter = try_to_catch_letter()
 		$AudioStreamPlayer.play()
+		$Area2D/AnimatedSprite2D.animation = "catch"
+		$Area2D/AnimatedSprite2D.play()
 		if letter:
 			get_node("/root/Game/Word").add_letter(letter)
 	
@@ -80,3 +82,7 @@ func _process(delta: float) -> void:
 	$Node2D/TextureProgressBar.value = $Node2D/Timer.time_left/$Node2D/Timer.wait_time*100
 	$Node2D/TextureProgressBar.global_position = global_position + Vector2(40, -20)
 	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	$Area2D/AnimatedSprite2D.animation = "default"
