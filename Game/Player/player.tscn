@@ -144,7 +144,7 @@ texture = SubResource("AnimatedTexture_m57qa")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_akrrf")
 animation = &"left_run"
-frame_progress = 0.470091
+frame_progress = 0.0681101
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, -50)

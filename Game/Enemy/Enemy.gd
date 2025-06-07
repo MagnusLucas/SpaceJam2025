@@ -16,6 +16,7 @@ var dir_to_des : Vector2
 func _ready() -> void:
 	$Marker2D.position = get_node("/root/Game/Control/Map/").position
 	$Label.text = letter
+	$AnimatedSprite2D.play(letter)
 	destination = $Marker2D.position
 	const A_OFFSET : int = 95
 	set_collision_layer_value(1, false)
