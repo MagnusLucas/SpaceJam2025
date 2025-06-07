@@ -30,13 +30,6 @@ func check() -> void:
 			$Label.text = ""
 	
 
-
-#func _on_gui_input(event: InputEvent) -> void:
-	#print('fggdf')
-	#if event.is_action("pause"):
-		#get_tree().paused = true
-		#$"../../LoseOverlay".show()
-		#pass
 func _unhandled_input(event : InputEvent) -> void:
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ESCAPE:

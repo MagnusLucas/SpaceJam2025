@@ -42,9 +42,13 @@ func update_terrain(prev_pos : Vector2i, curr_pos : Vector2i, terrain : Terrain)
 
 func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	var terrain_position = local_to_map(player.position)
+	if terrains.has(local_to_map(position)) and terrain_name == "base":
+		return
 	if terrain_name == "base":
 		terrain_position = local_to_map(position)
 	var terrain = Terrain.new_terrain(terrain_name, Terrain.EffectType[info["type"]])
+	if terrain_name == "base":
+		terrain.movable = false
 	terrains[terrain_position] = terrain
 	add_child(terrain)
 	terrain.position = map_to_local(terrain_position)

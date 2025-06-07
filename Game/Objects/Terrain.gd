@@ -9,6 +9,7 @@ const collision_scene = preload("res://Game/Objects/terrain.tscn")
 var used_name : String
 var affected_letters : Dictionary
 var effect : EffectType
+var movable : bool = true
 
 enum EffectType{
 	STOP,

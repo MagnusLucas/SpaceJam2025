@@ -64,7 +64,8 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("pick_terrain"):
 		if !terrain and map.terrains.has(map.local_to_map(position)):
-			terrain = map.terrains[map.local_to_map(position)]
+			if map.terrains[map.local_to_map(position)].movable:
+				terrain = map.terrains[map.local_to_map(position)]
 		elif terrain:
 			map.update_terrain(previous_position, map.local_to_map(position), terrain)
 			terrain = null
