@@ -17,10 +17,11 @@ func _ready() -> void:
 
 
 @warning_ignore("shadowed_variable")
-static func new_enemy(letter : String, loc1 : Vector2i, loc2 : Vector2i) -> Enemy:
+static func new_enemy(letter : String, loc1 : Vector2i, loc2 : Vector2i, speed: int = 10) -> Enemy:
 	var enemy = enemy_scene.instantiate()
 	enemy.letter = letter
 	enemy.start_pos = Vector2i( randi_range(loc1[0],loc2[0]), randi_range(loc1[1],loc2[1]))
+	enemy.speed = speed
 	return enemy
 
 

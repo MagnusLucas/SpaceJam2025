@@ -15,6 +15,10 @@ run/main_scene="uid://e65dve6de0un"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Waves="*res://Game/Waves.gd"
+
 [input]
 
 move_up={
