@@ -32,15 +32,6 @@ static func new_terrain(used_name : String, effect : EffectType) -> Terrain:
 		terrain.set_collision_mask_value(unicode, true)
 	return terrain
 
-func _ready() -> void:
-	if used_name == "base":
-		$"../Enemy/Marker2D".position = position
-	if effect == EffectType.STOP:
-		$StaticBody2D.process_mode = Node.PROCESS_MODE_INHERIT
-	for layer in range(32):
-		$StaticBody2D.set_collision_layer_value(layer + 1, get_collision_layer_value(layer + 1))
-		$StaticBody2D.set_collision_mask_value(layer + 1, get_collision_mask_value(layer + 1))
-
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Enemy and effect == EffectType.SLOW:

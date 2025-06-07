@@ -16,7 +16,6 @@ var dir_to_des : Vector2
 func _ready() -> void:
 	$Marker2D.position = get_node("/root/Game/Control/Map/").position
 	$Label.text = letter
-	position = start_pos
 	destination = $Marker2D.position
 	const A_OFFSET : int = 95
 	set_collision_layer_value(1, false)
@@ -30,6 +29,7 @@ static func new_enemy(letter : String, loc1 : Vector2i, loc2 : Vector2i, speed: 
 	var enemy = enemy_scene.instantiate()
 	enemy.letter = letter
 	enemy.start_pos = Vector2i( randi_range(loc1[0],loc2[0]), randi_range(loc1[1],loc2[1]))
+	enemy.position = enemy.start_pos
 	enemy.speed = speed
 	enemy.move = move
 	return enemy

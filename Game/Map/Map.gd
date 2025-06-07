@@ -31,7 +31,6 @@ func _ready() -> void:
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	wave1()
-	print(health)
 	
 func update_terrain(prev_pos : Vector2i, curr_pos : Vector2i, terrain : Terrain) -> void:
 	var atlas_coords = get_cell_atlas_coords(prev_pos)
@@ -81,7 +80,8 @@ func first_drop(rand_let, loc1 : Vector2i, loc2 : Vector2i, time : int = 1 ):
 	var rand_let_par = rand_let.duplicate()
 	for i in range(len(rand_let_par)):
 		var let = rand_let_par.pick_random()
-		add_child(Enemy.new_enemy(let,loc1,loc2))
+		var new_enemy = Enemy.new_enemy(let,loc1,loc2)
+		add_child(new_enemy)
 		rand_let_par.erase(let)
 		await get_tree().create_timer(time).timeout
 
@@ -118,9 +118,9 @@ func wave0():
 func wave1():
 	var rand_let = ['b','a','s','e']
 	first_drop(rand_let,Vector2i(-400,-320),Vector2i(400,-310),2)
-	#for i in range(20):
-		#add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(-400,-320),Vector2i(400,-310),50))
-		#await get_tree().create_timer(1).timeout
+	for i in range(20):
+		add_child(Enemy.new_enemy(rand_let.pick_random(),Vector2i(-400,-320),Vector2i(400,-310),50))
+		await get_tree().create_timer(1).timeout
 	
 
 func wave2():
