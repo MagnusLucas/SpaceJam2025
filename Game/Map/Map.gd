@@ -29,5 +29,6 @@ func add_terrain(terrain_name : String, info : Dictionary) -> void:
 	var terrain_position = local_to_map(player.position)
 	var terrain = Terrain.new_terrain(terrain_name, Terrain.EffectType[info["type"]])
 	terrains[terrain_position] = terrain
+	add_child(terrain)
 	terrain.position = map_to_local(terrain_position)
 	set_cell(terrain_position, 0, Vector2i(int(info["atlas_coords"]["x"]), int(info["atlas_coords"]["y"])))
