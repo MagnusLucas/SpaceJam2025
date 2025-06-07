@@ -54,7 +54,6 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _on_mouse_entered() -> void:
-	print("showing")
 	$Label.show()
 
 
