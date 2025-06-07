@@ -34,6 +34,13 @@
 		},
 		"type": "KILL"
 	},
+	"bloom": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
 	"book": {
 		"atlas_coords": {
 			"x": "3",
@@ -59,6 +66,27 @@
 		"atlas_coords": {
 			"x": "3",
 			"y": "1"
+		},
+		"type": "STOP"
+	},
+	"daisy": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
+	"egg": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "4"
+		},
+		"type": "SLOW"
+	},
+	"flower": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
 		},
 		"type": "STOP"
 	},
@@ -132,6 +160,20 @@
 		},
 		"type": "STOP"
 	},
+	"pansy": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
+	"plant": {
+		"atlas_coords": {
+			"x": "1",
+			"y": "4"
+		},
+		"type": "STOP"
+	},
 	"rock": {
 		"atlas_coords": {
 			"x": "0",
@@ -195,11 +237,25 @@
 		},
 		"type": "SLOW"
 	},
+	"white": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "4"
+		},
+		"type": "SLOW"
+	},
 	"wood": {
 		"atlas_coords": {
 			"x": "1",
 			"y": "5"
 		},
 		"type": "KILL"
+	},
+	"yolk": {
+		"atlas_coords": {
+			"x": "0",
+			"y": "4"
+		},
+		"type": "SLOW"
 	}
 }

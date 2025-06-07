@@ -176,4 +176,3 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_letr6")
-bus = &"SFX"

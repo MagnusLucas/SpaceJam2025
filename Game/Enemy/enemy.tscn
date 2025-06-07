@@ -644,4 +644,4 @@ text = "a"
 top_level = true
 position = Vector2(736, 243)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
