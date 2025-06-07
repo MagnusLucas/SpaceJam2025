@@ -99,7 +99,7 @@ func first_drop(rand_let, loc1 : Vector2i, loc2 : Vector2i, time : int = 1 ):
 	var rand_let_par = rand_let.duplicate()
 	for i in range(len(rand_let_par)):
 		var let = rand_let_par.pick_random()
-		var new_enemy = Enemy.new_enemy(let,loc1,loc2,100)
+		var new_enemy = Enemy.new_enemy(let,loc1,loc2,25)
 		add_child(new_enemy)
 		rand_let_par.erase(let)
 		await get_tree().create_timer(time).timeout
@@ -213,6 +213,6 @@ func expo_wave(lvl : int, loc1 : Vector2i, loc2 : Vector2i):
 	while get_tree().get_node_count_in_group("Enemy") != 0:
 		await get_tree().create_timer(0.2).timeout
 	for i in range(lvl*5):
-		add_child(Enemy.new_enemy(rand_let.pick_random(),loc1,loc2))
+		add_child(Enemy.new_enemy(rand_let.pick_random(),loc1,loc2,lvl*7.5))
 		await get_tree().create_timer(1).timeout
 	print(rand_let)

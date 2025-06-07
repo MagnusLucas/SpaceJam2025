@@ -51,8 +51,9 @@ func _process(delta: float) -> void:
 		move_direction += Vector2.RIGHT
 		$Sprite2D/AnimatedSprite2D.play("right_run")
 	if move_direction:
+		#var to_area = $Area2D.position - position
+		#$Area2D.position = position + to_area.rotated(move_direction.angle() - Vector2.UP.angle())
 		$Area2D.rotation = move_direction.angle() - Vector2.UP.angle()
-		var to_area = $Area2D.position - position
 	previous_position = map.local_to_map(position)
 	position += move_direction * MAX_SPEED * delta
 	if previous_position_2 == position:
